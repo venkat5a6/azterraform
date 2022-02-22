@@ -12,7 +12,7 @@ provider "azurerm" {
   client_id = "f1744cce-acd0-4f01-8d72-f4d0e53b1acd"
   client_secret = "dh0~k5sKzUeN4PJXDAlPb9sCU~7KfgtXTJ"
   tenant_id = "e355c7e8-852d-4e18-8f92-9623db3b5291"
-  subscription_id = "d4395179-6c83-4051-81e3-563f1a5210b8"
+  subscription_id = "4fa1aa2a-bd64-49e7-a3cf-65127add0baa"
 }
 # Create a resource group if it doesn't exist
 resource "random_string" "fqdn" {
@@ -87,9 +87,9 @@ resource "azurerm_lb_rule" "alpha" {
   backend_address_pool_id        = azurerm_lb_backend_address_pool.bpepool.id
   frontend_ip_configuration_name = "PublicIPAddress"
 }
-data "azurerm_image" "iris-az-packer-image" {
+data "azurerm_image" "iris-azrg1-packer-image" {
   resource_group_name = "azrg1"
-  name                = "iris-az-packer-image"
+  name                = "iris-azrg1-packer-image"
 }
 resource "azurerm_virtual_machine_scale_set" "alpha" {
 name                = "alpha-vmss"
@@ -104,7 +104,7 @@ sku {
   capacity = 2
 }
 storage_profile_image_reference {
-id=data.azurerm_image.iris-az-packer-image.id
+id=data.azurerm_image.iris-azrg1-packer-image.id
 }
 storage_profile_os_disk {
   name              = ""
@@ -141,5 +141,6 @@ network_profile {
       }
 }
 }
+
 
 
