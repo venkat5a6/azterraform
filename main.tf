@@ -9,10 +9,10 @@ terraform {
 }
 provider "azurerm" {
   features {}
-  client_id= "f1744cce-acd0-4f01-8d72-f4d0e53b1acd"
-  client_secret= "dh0~k5sKzUeN4PJXDAlPb9sCU~7KfgtXTJ"
-  tenant_id= "e355c7e8-852d-4e18-8f92-9623db3b5291"
-  subscription_id = "4fa1aa2a-bd64-49e7-a3cf-65127add0baa"
+  client_id = "f1744cce-acd0-4f01-8d72-f4d0e53b1acd"
+  client_secret = "dh0~k5sKzUeN4PJXDAlPb9sCU~7KfgtXTJ"
+  tenant_id = "e355c7e8-852d-4e18-8f92-9623db3b5291"
+  subscription_id = "d4395179-6c83-4051-81e3-563f1a5210b8"
 }
 # Create a resource group if it doesn't exist
 resource "random_string" "fqdn" {
@@ -141,4 +141,5 @@ network_profile {
       }
 }
 }
+
 
