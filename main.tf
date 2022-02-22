@@ -120,13 +120,9 @@ storage_profile_data_disk {
 }
 os_profile {
   computer_name_prefix = "testvm"
-  admin_username       = "ssadcloud"
+  admin_username       = "user1"
 }
-os_profile_linux_config {
-disable_password_authentication = true
-ssh_keys {
-path     = "/home/ssadcloud/.ssh/authorized_keys"
-key_data = file("~/.ssh/id_rsa.pub")
+
 }
 }
 network_profile {
